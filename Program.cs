@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Conways.GameOfLife.Menu;
 
-namespace conways_gol
+namespace Conways.GameOfLife
 {
     internal static class Program
     {
@@ -16,7 +17,7 @@ namespace conways_gol
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MenuForm());
         }
     }
 }
