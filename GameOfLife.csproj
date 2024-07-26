@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{60B67798-C07A-4991-B62E-7501CF57B273}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>conways_gol</RootNamespace>
+    <RootNamespace>Conways.GameOfLife</RootNamespace>
     <AssemblyName>conways-gol</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

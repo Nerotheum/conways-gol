@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace conways_gol.Properties
+namespace Conways.GameOfLife.Properties
 {
 
 
