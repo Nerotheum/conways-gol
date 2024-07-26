@@ -82,6 +82,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MenuForm";
             this.Text = "Conways - Game of Life";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MenuFormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
         }

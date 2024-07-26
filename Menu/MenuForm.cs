@@ -16,5 +16,10 @@ namespace Conways.GameOfLife.Menu
         {
             InitializeComponent();
         }
+
+        private void MenuFormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
