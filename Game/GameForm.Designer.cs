@@ -146,7 +146,8 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(809, 630);
             this.Name = "GameForm";
-            this.Text = "GameForm";
+            this.Text = "Conways - Game of Life";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameFormClosed);
             this._panelMenu.ResumeLayout(false);
             this._panelMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._trackbarSpeed)).EndInit();

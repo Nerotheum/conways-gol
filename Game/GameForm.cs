@@ -66,5 +66,10 @@ namespace Conways.GameOfLife.Game
                 }
             }
         }
+
+        private void GameFormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
