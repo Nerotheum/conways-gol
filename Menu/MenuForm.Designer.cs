@@ -69,6 +69,7 @@
             this._btnOpenGameForm.TabIndex = 3;
             this._btnOpenGameForm.Text = "Next";
             this._btnOpenGameForm.UseVisualStyleBackColor = true;
+            this._btnOpenGameForm.Click += new System.EventHandler(this.BtnOpenGameFormClick);
             // 
             // MenuForm
             // 
