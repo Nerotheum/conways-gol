@@ -81,11 +81,13 @@
             this.Controls.Add(this._lblGridSize);
             this.Controls.Add(this._lblHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MenuForm";
             this.Text = "Conways - Game of Life";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MenuFormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

@@ -134,6 +134,7 @@
             this._pictureBoxGame.Size = new System.Drawing.Size(550, 550);
             this._pictureBoxGame.TabIndex = 2;
             this._pictureBoxGame.TabStop = false;
+            this._pictureBoxGame.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxPaint);
             // 
             // GameForm
             // 
@@ -142,6 +143,7 @@
             this.ClientSize = new System.Drawing.Size(787, 574);
             this.Controls.Add(this._pictureBoxGame);
             this.Controls.Add(this._panelMenu);
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(809, 630);
             this.Name = "GameForm";
             this.Text = "GameForm";
