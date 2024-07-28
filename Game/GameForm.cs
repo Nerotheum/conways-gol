@@ -71,20 +71,14 @@ namespace Conways.GameOfLife.Game
         {
             MouseEventArgs mouseEventArgs = (MouseEventArgs)e;
             Point clickCoordinates = mouseEventArgs.Location;
+            int column = clickCoordinates.X / _cellWidthPictureBox;
+            int row = clickCoordinates.Y / _cellHeightPictureBox;
 
-            int coordinateToColumn, coordinateToRow;
-            coordinateToColumn = clickCoordinates.X / _cellWidthPictureBox;
-            coordinateToRow = clickCoordinates.Y / _cellHeightPictureBox;
+            if (row < 0 || row >= _currentGenGrid.GetLength(0) || column < 0 || column >= _currentGenGrid.GetLength(1))
+                return; // Out of bounds, do nothing
 
-            try
-            {
-                Cell clickedCell = _currentGenGrid[coordinateToRow, coordinateToColumn];
-                clickedCell.IsAlive = !clickedCell.IsAlive;
-            }
-            catch
-            {
-                //Out of bonds, do nothing
-            }
+            Cell clickedCell = _currentGenGrid[row, column];
+            clickedCell.IsAlive = !clickedCell.IsAlive;
             _pictureBoxGame.Invalidate();
         }
 
