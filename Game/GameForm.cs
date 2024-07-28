@@ -33,7 +33,7 @@ namespace Conways.GameOfLife.Game
                 for (int j = 0; j < _gridSize; j++)
                 {
                     Coords coords = new Coords(i, j);
-                    _currentGenGrid[i, j] = new Cell(coords, false);
+                    _currentGenGrid[i, j] = new Cell(coords);
                 }
             }
         }

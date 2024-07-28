@@ -10,10 +10,10 @@ namespace Conways.GameOfLife.Game.Grid
     {
         public Coords Coords { get; set; }
         public bool IsAlive { get; set; }
-        public Cell(Coords coords, bool isAlive)
+        public Cell(Coords coords)
         {
             Coords = coords;
-            IsAlive = isAlive;
+            IsAlive = false;
         }
     }
 }
