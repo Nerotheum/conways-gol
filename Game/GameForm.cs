@@ -67,6 +67,27 @@ namespace Conways.GameOfLife.Game
             }
         }
 
+        private void PictureBoxGameClick(object sender, EventArgs e)
+        {
+            MouseEventArgs mouseEventArgs = (MouseEventArgs)e;
+            Point clickCoordinates = mouseEventArgs.Location;
+
+            int coordinateToColumn, coordinateToRow;
+            coordinateToColumn = clickCoordinates.X / _cellWidthPictureBox;
+            coordinateToRow = clickCoordinates.Y / _cellHeightPictureBox;
+
+            try
+            {
+                Cell clickedCell = _currentGenGrid[coordinateToRow, coordinateToColumn];
+                clickedCell.IsAlive = !clickedCell.IsAlive;
+            }
+            catch
+            {
+                //Out of bonds, do nothing
+            }
+            _pictureBoxGame.Invalidate();
+        }
+
         private void GameFormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();

@@ -134,6 +134,7 @@
             this._pictureBoxGame.Size = new System.Drawing.Size(550, 550);
             this._pictureBoxGame.TabIndex = 2;
             this._pictureBoxGame.TabStop = false;
+            this._pictureBoxGame.Click += new System.EventHandler(this.PictureBoxGameClick);
             this._pictureBoxGame.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxPaint);
             // 
             // GameForm
