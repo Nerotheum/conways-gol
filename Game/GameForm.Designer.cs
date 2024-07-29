@@ -32,7 +32,6 @@
             this._lblHeader = new System.Windows.Forms.Label();
             this._lblGeneration = new System.Windows.Forms.Label();
             this._btnStartGame = new System.Windows.Forms.Button();
-            this._btnStopGame = new System.Windows.Forms.Button();
             this._btnClear = new System.Windows.Forms.Button();
             this._lblSpeed = new System.Windows.Forms.Label();
             this._trackbarSpeed = new System.Windows.Forms.TrackBar();
@@ -47,7 +46,6 @@
             this._panelMenu.Controls.Add(this._lblHeader);
             this._panelMenu.Controls.Add(this._lblGeneration);
             this._panelMenu.Controls.Add(this._btnStartGame);
-            this._panelMenu.Controls.Add(this._btnStopGame);
             this._panelMenu.Controls.Add(this._btnClear);
             this._panelMenu.Controls.Add(this._lblSpeed);
             this._panelMenu.Controls.Add(this._trackbarSpeed);
@@ -85,20 +83,10 @@
             this._btnStartGame.Text = "Start";
             this._btnStartGame.UseVisualStyleBackColor = true;
             // 
-            // _btnStopGame
-            // 
-            this._btnStopGame.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._btnStopGame.Location = new System.Drawing.Point(3, 233);
-            this._btnStopGame.Name = "_btnStopGame";
-            this._btnStopGame.Size = new System.Drawing.Size(201, 60);
-            this._btnStopGame.TabIndex = 2;
-            this._btnStopGame.Text = "Stop";
-            this._btnStopGame.UseVisualStyleBackColor = true;
-            // 
             // _btnClear
             // 
             this._btnClear.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._btnClear.Location = new System.Drawing.Point(3, 299);
+            this._btnClear.Location = new System.Drawing.Point(3, 238);
             this._btnClear.Name = "_btnClear";
             this._btnClear.Size = new System.Drawing.Size(201, 60);
             this._btnClear.TabIndex = 5;
@@ -107,7 +95,7 @@
             // 
             // _lblSpeed
             // 
-            this._lblSpeed.Location = new System.Drawing.Point(7, 376);
+            this._lblSpeed.Location = new System.Drawing.Point(7, 310);
             this._lblSpeed.Name = "_lblSpeed";
             this._lblSpeed.Size = new System.Drawing.Size(193, 23);
             this._lblSpeed.TabIndex = 4;
@@ -116,7 +104,7 @@
             // 
             // _trackbarSpeed
             // 
-            this._trackbarSpeed.Location = new System.Drawing.Point(3, 418);
+            this._trackbarSpeed.Location = new System.Drawing.Point(3, 352);
             this._trackbarSpeed.Maximum = 5;
             this._trackbarSpeed.Minimum = 1;
             this._trackbarSpeed.Name = "_trackbarSpeed";
@@ -163,7 +151,6 @@
         private System.Windows.Forms.Label _lblHeader;
         private System.Windows.Forms.Label _lblGeneration;
         private System.Windows.Forms.Button _btnStartGame;
-        private System.Windows.Forms.Button _btnStopGame;
         private System.Windows.Forms.Button _btnClear;
         private System.Windows.Forms.Label _lblSpeed;
         private System.Windows.Forms.TrackBar _trackbarSpeed;
