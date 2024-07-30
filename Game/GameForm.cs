@@ -96,34 +96,13 @@ namespace Conways.GameOfLife.Game
             {
                 for (int j = 0; j < _gridSize; j++)
                 {
-                    Coords coords = new Coords(i, j);
-                    _nextGenGrid[i, j] = new Cell(coords);
-                }
-            }
+                    _nextGenGrid[i, j] = new Cell(new Coords(i, j));
 
-            for (int i = 0; i < _gridSize; i++)
-            {
-                for (int j = 0; j < _gridSize; j++)
-                {
                     bool isAlive = _currentGenGrid[i, j].IsAlive;
                     int aliveNbs = GetNumOfAliveNeighbourCells(i, j);
 
-                    if (isAlive && aliveNbs < 2)
-                    {
-                        _nextGenGrid[i, j].IsAlive = false;
-                    }
-                    else if (isAlive && aliveNbs >= 4)
-                    {
-                        _nextGenGrid[i, j].IsAlive = false;
-                    }
-                    else if (isAlive && aliveNbs == 2 || isAlive && aliveNbs == 3)
-                    {
+                    if ((isAlive && aliveNbs == 2 || isAlive && aliveNbs == 3) || (!isAlive && aliveNbs == 3))
                         _nextGenGrid[i, j].IsAlive = true;
-                    }
-                    else if (!isAlive && aliveNbs == 3)
-                    {
-                        _nextGenGrid[i, j].IsAlive = true;
-                    }
                 }
             }
             _currentGenGrid = _nextGenGrid;
@@ -131,43 +110,34 @@ namespace Conways.GameOfLife.Game
 
         public int GetNumOfAliveNeighbourCells(int row, int column)
         {
-            if (_currentGenGrid[row, column] == null)
-                return 0;
-
-            List<Coords> neighbourCellsPosition = new List<Coords>
+            Coords[] neighborOffsets = new Coords[]
             {
-                {new Coords(-1, -1)},
-                {new Coords(-1, 0)},
-                {new Coords(-1, +1)},
-                {new Coords(0, -1)},
-                {new Coords(0, +1)},
-                {new Coords(+1, -1)},
-                {new Coords(+1, 0)},
-                {new Coords(+1, +1)},
+                new Coords(-1, -1),
+                new Coords(-1, 0),
+                new Coords(-1, 1),
+                new Coords(0, -1),
+                new Coords(0, 1),
+                new Coords(1, -1),
+                new Coords(1, 0),
+                new Coords(1, 1)
             };
 
-            int numOfPossibleNbs = 0;
-            int numOfAliveNbs = 0;
-
-            foreach (Coords neighbourCellPosition in neighbourCellsPosition)
+            int numOfAliveNeighbors = 0;
+            foreach (Coords neighborOffset in neighborOffsets)
             {
-                int neighbourCellRow = row + neighbourCellPosition.Row;
-                int neighbourCellColumn = column + neighbourCellPosition.Column;
+                int neighborRow = row + neighborOffset.Row;
+                int neighborColumn = column + neighborOffset.Column;
 
-                if (neighbourCellRow >= 0 && neighbourCellRow < _gridSize)
+                if (neighborRow >= 0 && neighborRow < _gridSize &&
+                    neighborColumn >= 0 && neighborColumn < _gridSize)
                 {
-                    if (neighbourCellColumn >= 0 && neighbourCellColumn < _gridSize)
-                    {
-                        numOfPossibleNbs++;
-                        Cell neighbourCell = _currentGenGrid[neighbourCellRow, neighbourCellColumn];
-                        if (neighbourCell.IsAlive) numOfAliveNbs++;
-                    }
+                    Cell neighborCell = _currentGenGrid[neighborRow, neighborColumn];
+                    if (neighborCell != null && neighborCell.IsAlive)
+                        numOfAliveNeighbors++;
                 }
             }
-
-            return numOfAliveNbs;
+            return numOfAliveNeighbors;
         }
-
 
         private void GameFormClosed(object sender, FormClosedEventArgs e)
         {
