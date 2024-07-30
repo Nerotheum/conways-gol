@@ -1,5 +1,6 @@
 ﻿using Conways.GameOfLife.Game.Grid;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -7,7 +8,7 @@ namespace Conways.GameOfLife.Game
 {
     public partial class GameForm : Form
     {
-        private Cell[,] _currentGenGrid;
+        private Cell[,] _currentGenGrid, _nextGenGrid;
         private int _gridSize, _cellWidthPictureBox, _cellHeightPictureBox;
         public GameForm(int gridSize)
         {
@@ -81,6 +82,92 @@ namespace Conways.GameOfLife.Game
             clickedCell.IsAlive = !clickedCell.IsAlive;
             _pictureBoxGame.Invalidate();
         }
+
+        private void BtnStartClick(object sender, EventArgs e)
+        {
+            CalculateNextGeneration();
+            _pictureBoxGame.Invalidate();
+        }
+
+        public void CalculateNextGeneration()
+        {
+            _nextGenGrid = new Cell[_gridSize, _gridSize];
+            for (int i = 0; i < _gridSize; i++)
+            {
+                for (int j = 0; j < _gridSize; j++)
+                {
+                    Coords coords = new Coords(i, j);
+                    _nextGenGrid[i, j] = new Cell(coords);
+                }
+            }
+
+            for (int i = 0; i < _gridSize; i++)
+            {
+                for (int j = 0; j < _gridSize; j++)
+                {
+                    bool isAlive = _currentGenGrid[i, j].IsAlive;
+                    int aliveNbs = GetNumOfAliveNeighbourCells(i, j);
+
+                    if (isAlive && aliveNbs < 2)
+                    {
+                        _nextGenGrid[i, j].IsAlive = false;
+                    }
+                    else if (isAlive && aliveNbs >= 4)
+                    {
+                        _nextGenGrid[i, j].IsAlive = false;
+                    }
+                    else if (isAlive && aliveNbs == 2 || isAlive && aliveNbs == 3)
+                    {
+                        _nextGenGrid[i, j].IsAlive = true;
+                    }
+                    else if (!isAlive && aliveNbs == 3)
+                    {
+                        _nextGenGrid[i, j].IsAlive = true;
+                    }
+                }
+            }
+            _currentGenGrid = _nextGenGrid;
+        }
+
+        public int GetNumOfAliveNeighbourCells(int row, int column)
+        {
+            if (_currentGenGrid[row, column] == null)
+                return 0;
+
+            List<Coords> neighbourCellsPosition = new List<Coords>
+            {
+                {new Coords(-1, -1)},
+                {new Coords(-1, 0)},
+                {new Coords(-1, +1)},
+                {new Coords(0, -1)},
+                {new Coords(0, +1)},
+                {new Coords(+1, -1)},
+                {new Coords(+1, 0)},
+                {new Coords(+1, +1)},
+            };
+
+            int numOfPossibleNbs = 0;
+            int numOfAliveNbs = 0;
+
+            foreach (Coords neighbourCellPosition in neighbourCellsPosition)
+            {
+                int neighbourCellRow = row + neighbourCellPosition.Row;
+                int neighbourCellColumn = column + neighbourCellPosition.Column;
+
+                if (neighbourCellRow >= 0 && neighbourCellRow < _gridSize)
+                {
+                    if (neighbourCellColumn >= 0 && neighbourCellColumn < _gridSize)
+                    {
+                        numOfPossibleNbs++;
+                        Cell neighbourCell = _currentGenGrid[neighbourCellRow, neighbourCellColumn];
+                        if (neighbourCell.IsAlive) numOfAliveNbs++;
+                    }
+                }
+            }
+
+            return numOfAliveNbs;
+        }
+
 
         private void GameFormClosed(object sender, FormClosedEventArgs e)
         {
