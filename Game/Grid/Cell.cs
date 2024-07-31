@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Conways.GameOfLife.Game.Grid
+﻿namespace Conways.GameOfLife.Game.Grid
 {
     internal class Cell
     {
@@ -17,22 +11,22 @@ namespace Conways.GameOfLife.Game.Grid
             _isAlive = false;
         }
 
-        public int getRow()
+        public int GetRow()
         {
-            return _coords.getRow();
+            return _coords.GetRow();
         }
 
-        public int getColumn()
+        public int GetColumn()
         {
-            return _coords.getColumn();
+            return _coords.GetColumn();
         }
 
-        public bool getIsAlive()
+        public bool GetIsAlive()
         {
             return _isAlive;
         }
 
-        public void setIsAlive(bool isAlive)
+        public void SetIsAlive(bool isAlive)
         {
             _isAlive = isAlive;
         }

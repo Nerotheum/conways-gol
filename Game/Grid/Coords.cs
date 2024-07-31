@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Conways.GameOfLife.Game.Grid
+﻿namespace Conways.GameOfLife.Game.Grid
 {
     internal class Coords
     {
@@ -16,12 +10,12 @@ namespace Conways.GameOfLife.Game.Grid
             _column = column;
         }
 
-        public int getRow()
+        public int GetRow()
         {
             return _row;
         }
 
-        public int getColumn()
+        public int GetColumn()
         {
             return _column;
         }

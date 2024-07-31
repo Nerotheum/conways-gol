@@ -1,6 +1,5 @@
 ﻿using Conways.GameOfLife.Game.Grid;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -63,10 +62,10 @@ namespace Conways.GameOfLife.Game
                 for (int j = 0; j < _gridSize; j++)
                 {
                     Cell cell = _currentGenGrid[i, j];
-                    if (cell.getIsAlive())
+                    if (cell.GetIsAlive())
                     {
-                        int rectWidth = cell.getRow() * _cellWidthPictureBox;
-                        int rectHeight = cell.getColumn() * _cellHeightPictureBox;
+                        int rectWidth = cell.GetRow() * _cellWidthPictureBox;
+                        int rectHeight = cell.GetColumn() * _cellHeightPictureBox;
                         Rectangle rectangle = new Rectangle(rectHeight, rectWidth, _cellWidthPictureBox, _cellHeightPictureBox);
                         e.Graphics.FillRectangle(brushBlack, rectangle);
                     }
@@ -85,7 +84,7 @@ namespace Conways.GameOfLife.Game
                 return; // Out of bounds, do nothing
 
             Cell clickedCell = _currentGenGrid[row, column];
-            clickedCell.setIsAlive(!clickedCell.getIsAlive());
+            clickedCell.SetIsAlive(!clickedCell.GetIsAlive());
             _pictureBoxGame.Invalidate();
         }
 
@@ -105,7 +104,7 @@ namespace Conways.GameOfLife.Game
             {
                 for (int j = 0; j < _gridSize; j++)
                 {
-                    _currentGenGrid[i, j].setIsAlive(false);
+                    _currentGenGrid[i, j].SetIsAlive(false);
                 }
             }
             _pictureBoxGame.Invalidate();
@@ -133,11 +132,11 @@ namespace Conways.GameOfLife.Game
                 {
                     _nextGenGrid[i, j] = new Cell(new Coords(i, j));
 
-                    bool isAlive = _currentGenGrid[i, j].getIsAlive();
+                    bool isAlive = _currentGenGrid[i, j].GetIsAlive();
                     int aliveNbs = GetNumOfAliveNeighbourCells(i, j);
 
                     if ((isAlive && aliveNbs == 2 || isAlive && aliveNbs == 3) || (!isAlive && aliveNbs == 3))
-                        _nextGenGrid[i, j].setIsAlive(true);
+                        _nextGenGrid[i, j].SetIsAlive(true);
                 }
             }
             _currentGenGrid = _nextGenGrid;
@@ -161,14 +160,14 @@ namespace Conways.GameOfLife.Game
             int numOfAliveNeighbors = 0;
             foreach (Coords neighborOffset in neighborOffsets)
             {
-                int neighborRow = row + neighborOffset.getRow();
-                int neighborColumn = column + neighborOffset.getColumn();
+                int neighborRow = row + neighborOffset.GetRow();
+                int neighborColumn = column + neighborOffset.GetColumn();
 
                 if (neighborRow >= 0 && neighborRow < _gridSize &&
                     neighborColumn >= 0 && neighborColumn < _gridSize)
                 {
                     Cell neighborCell = _currentGenGrid[neighborRow, neighborColumn];
-                    if (neighborCell != null && neighborCell.getIsAlive())
+                    if (neighborCell != null && neighborCell.GetIsAlive())
                         numOfAliveNeighbors++;
                 }
             }
