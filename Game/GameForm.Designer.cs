@@ -93,6 +93,7 @@
             this._btnClear.TabIndex = 5;
             this._btnClear.Text = "Clear";
             this._btnClear.UseVisualStyleBackColor = true;
+            this._btnClear.Click += new System.EventHandler(this.BtnClearClick);
             // 
             // _lblSpeed
             // 

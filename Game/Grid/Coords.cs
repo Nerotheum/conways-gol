@@ -8,12 +8,22 @@ namespace Conways.GameOfLife.Game.Grid
 {
     internal class Coords
     {
-        public int Row { get; set; }
-        public int Column { get; set; }
+        private int _row, _column;
+
         public Coords(int row, int column)
         {
-            Row = row;
-            Column = column;
+            _row = row;
+            _column = column;
+        }
+
+        public int getRow()
+        {
+            return _row;
+        }
+
+        public int getColumn()
+        {
+            return _column;
         }
     }
 }
