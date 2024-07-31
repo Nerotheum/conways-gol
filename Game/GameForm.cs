@@ -9,10 +9,16 @@ namespace Conways.GameOfLife.Game
     public partial class GameForm : Form
     {
         private Cell[,] _currentGenGrid, _nextGenGrid;
-        private int _gridSize, _cellWidthPictureBox, _cellHeightPictureBox;
+        private int _gridSize, _cellWidthPictureBox, _cellHeightPictureBox, _generation;
+        private Timer _gameTimer;
+        private bool _gameRunning;
+
         public GameForm(int gridSize)
         {
             _gridSize = gridSize;
+            _gameTimer = new Timer();
+            _gameTimer.Interval = 3 * 1000 / 2;
+            _gameTimer.Tick += new EventHandler(GameTimerTick);
             InitializeComponent();
             InitializeGrid();
         }
@@ -85,8 +91,19 @@ namespace Conways.GameOfLife.Game
 
         private void BtnStartClick(object sender, EventArgs e)
         {
+            _gameRunning = !_gameRunning;
+            if (_gameRunning)
+                _gameTimer.Start();
+            else
+                _gameTimer.Stop();
+            _btnStartGame.Text = _gameRunning ? "Stop" : "Start";
+        }
+
+        private void GameTimerTick(object sender, EventArgs e)
+        {
             CalculateNextGeneration();
             _pictureBoxGame.Invalidate();
+            _lblGeneration.Text = "Cell generation: " + _generation;
         }
 
         public void CalculateNextGeneration()
