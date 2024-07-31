@@ -106,7 +106,7 @@ namespace Conways.GameOfLife.Game
             _lblGeneration.Text = "Cell generation: " + _generation;
         }
 
-        public void CalculateNextGeneration()
+        private void CalculateNextGeneration()
         {
             _nextGenGrid = new Cell[_gridSize, _gridSize];
             for (int i = 0; i < _gridSize; i++)
@@ -123,9 +123,10 @@ namespace Conways.GameOfLife.Game
                 }
             }
             _currentGenGrid = _nextGenGrid;
+            _generation++;
         }
 
-        public int GetNumOfAliveNeighbourCells(int row, int column)
+        private int GetNumOfAliveNeighbourCells(int row, int column)
         {
             Coords[] neighborOffsets = new Coords[]
             {
@@ -154,6 +155,12 @@ namespace Conways.GameOfLife.Game
                 }
             }
             return numOfAliveNeighbors;
+        }
+
+        private void TrackbarSpeedScroll(object sender, EventArgs e)
+        {
+            int[] nums = { 1, 2, 3, 4, 5 };
+            _gameTimer.Interval = nums[nums.Length - _trackbarSpeed.Value] * 1000;
         }
 
         private void GameFormClosed(object sender, FormClosedEventArgs e)

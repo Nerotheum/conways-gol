@@ -112,6 +112,7 @@
             this._trackbarSpeed.Size = new System.Drawing.Size(201, 69);
             this._trackbarSpeed.TabIndex = 3;
             this._trackbarSpeed.Value = 3;
+            this._trackbarSpeed.Scroll += new System.EventHandler(this.TrackbarSpeedScroll);
             // 
             // _pictureBoxGame
             // 
