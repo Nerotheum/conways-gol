@@ -88,6 +88,11 @@ namespace Conways.GameOfLife.Game
             _pictureBoxGame.Invalidate();
         }
 
+        private void BtnRandomizeClick(object sender, EventArgs e)
+        {
+            ResetGrid(generateRandomCells: true);
+        }
+
         private void BtnStartClick(object sender, EventArgs e)
         {
             _gameRunning = !_gameRunning;
@@ -100,11 +105,20 @@ namespace Conways.GameOfLife.Game
 
         private void BtnClearClick(object sender, EventArgs e)
         {
+            ResetGrid(generateRandomCells: false);
+        }
+
+        private void ResetGrid(bool generateRandomCells)
+        {
+            Random random = new Random();
             for (int i = 0; i < _gridSize; i++)
             {
                 for (int j = 0; j < _gridSize; j++)
                 {
-                    _currentGenGrid[i, j].SetIsAlive(false);
+                    bool isAlive = false;
+                    if(generateRandomCells)
+                        isAlive = random.NextDouble() >= 0.5;
+                    _currentGenGrid[i, j].SetIsAlive(isAlive);
                 }
             }
             _pictureBoxGame.Invalidate();

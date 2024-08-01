@@ -31,6 +31,7 @@
             this._panelMenu = new System.Windows.Forms.Panel();
             this._lblHeader = new System.Windows.Forms.Label();
             this._lblGeneration = new System.Windows.Forms.Label();
+            this._btnRandomize = new System.Windows.Forms.Button();
             this._btnStartGame = new System.Windows.Forms.Button();
             this._btnClear = new System.Windows.Forms.Button();
             this._lblSpeed = new System.Windows.Forms.Label();
@@ -45,6 +46,7 @@
             // 
             this._panelMenu.Controls.Add(this._lblHeader);
             this._panelMenu.Controls.Add(this._lblGeneration);
+            this._panelMenu.Controls.Add(this._btnRandomize);
             this._panelMenu.Controls.Add(this._btnStartGame);
             this._panelMenu.Controls.Add(this._btnClear);
             this._panelMenu.Controls.Add(this._lblSpeed);
@@ -73,10 +75,21 @@
             this._lblGeneration.Text = "Cell generation: 0";
             this._lblGeneration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // _btnRandomize
+            // 
+            this._btnRandomize.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._btnRandomize.Location = new System.Drawing.Point(3, 165);
+            this._btnRandomize.Name = "_btnRandomize";
+            this._btnRandomize.Size = new System.Drawing.Size(201, 60);
+            this._btnRandomize.TabIndex = 6;
+            this._btnRandomize.Text = "Randomize";
+            this._btnRandomize.UseVisualStyleBackColor = true;
+            this._btnRandomize.Click += new System.EventHandler(this.BtnRandomizeClick);
+            // 
             // _btnStartGame
             // 
             this._btnStartGame.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._btnStartGame.Location = new System.Drawing.Point(3, 167);
+            this._btnStartGame.Location = new System.Drawing.Point(3, 237);
             this._btnStartGame.Name = "_btnStartGame";
             this._btnStartGame.Size = new System.Drawing.Size(201, 60);
             this._btnStartGame.TabIndex = 1;
@@ -87,7 +100,7 @@
             // _btnClear
             // 
             this._btnClear.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._btnClear.Location = new System.Drawing.Point(3, 238);
+            this._btnClear.Location = new System.Drawing.Point(3, 310);
             this._btnClear.Name = "_btnClear";
             this._btnClear.Size = new System.Drawing.Size(201, 60);
             this._btnClear.TabIndex = 5;
@@ -97,7 +110,7 @@
             // 
             // _lblSpeed
             // 
-            this._lblSpeed.Location = new System.Drawing.Point(7, 310);
+            this._lblSpeed.Location = new System.Drawing.Point(7, 395);
             this._lblSpeed.Name = "_lblSpeed";
             this._lblSpeed.Size = new System.Drawing.Size(193, 23);
             this._lblSpeed.TabIndex = 4;
@@ -106,7 +119,7 @@
             // 
             // _trackbarSpeed
             // 
-            this._trackbarSpeed.Location = new System.Drawing.Point(3, 352);
+            this._trackbarSpeed.Location = new System.Drawing.Point(3, 437);
             this._trackbarSpeed.Maximum = 5;
             this._trackbarSpeed.Minimum = 1;
             this._trackbarSpeed.Name = "_trackbarSpeed";
@@ -153,6 +166,7 @@
         private System.Windows.Forms.Panel _panelMenu;
         private System.Windows.Forms.Label _lblHeader;
         private System.Windows.Forms.Label _lblGeneration;
+        private System.Windows.Forms.Button _btnRandomize;
         private System.Windows.Forms.Button _btnStartGame;
         private System.Windows.Forms.Button _btnClear;
         private System.Windows.Forms.Label _lblSpeed;
