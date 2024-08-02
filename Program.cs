@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using Conways.GameOfLife.Menu;
+using Conways.GameOfLife.Game;
 
 namespace Conways.GameOfLife
 {
@@ -14,7 +14,7 @@ namespace Conways.GameOfLife
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MenuForm());
+            Application.Run(new GameForm(30));
         }
     }
 }

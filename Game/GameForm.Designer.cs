@@ -149,6 +149,7 @@
             this.Controls.Add(this._pictureBoxGame);
             this.Controls.Add(this._panelMenu);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(809, 630);
             this.MinimumSize = new System.Drawing.Size(809, 630);
             this.Name = "GameForm";
             this.Text = "Conways - Game of Life";
