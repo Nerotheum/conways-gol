@@ -24,9 +24,6 @@ namespace Conways.GameOfLife.Game
 
         private void InitializeGrid()
         {
-            _pictureBoxGame.Width = Math.Max(_pictureBoxGame.Width, _pictureBoxGame.Height);
-            _pictureBoxGame.Height = _pictureBoxGame.Width;
-
             _cellWidthPictureBox = _pictureBoxGame.Width / _gridSize;
             _cellHeightPictureBox = _pictureBoxGame.Height / _gridSize;
             _pictureBoxGame.Width = _gridSize * _cellWidthPictureBox + 1;
@@ -134,7 +131,6 @@ namespace Conways.GameOfLife.Game
         {
             CalculateNextGeneration();
             _pictureBoxGame.Invalidate();
-            _lblGeneration.Text = "Cell generation: " + _generation;
         }
 
         private void CalculateNextGeneration()

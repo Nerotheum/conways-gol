@@ -30,7 +30,6 @@
         {
             this._panelMenu = new System.Windows.Forms.Panel();
             this._lblHeader = new System.Windows.Forms.Label();
-            this._lblGeneration = new System.Windows.Forms.Label();
             this._btnRandomize = new System.Windows.Forms.Button();
             this._btnStartGame = new System.Windows.Forms.Button();
             this._btnClear = new System.Windows.Forms.Button();
@@ -45,7 +44,6 @@
             // _panelMenu
             // 
             this._panelMenu.Controls.Add(this._lblHeader);
-            this._panelMenu.Controls.Add(this._lblGeneration);
             this._panelMenu.Controls.Add(this._btnRandomize);
             this._panelMenu.Controls.Add(this._btnStartGame);
             this._panelMenu.Controls.Add(this._btnClear);
@@ -65,15 +63,6 @@
             this._lblHeader.TabIndex = 0;
             this._lblHeader.Text = "Game of Life";
             this._lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // _lblGeneration
-            // 
-            this._lblGeneration.Location = new System.Drawing.Point(3, 116);
-            this._lblGeneration.Name = "_lblGeneration";
-            this._lblGeneration.Size = new System.Drawing.Size(197, 23);
-            this._lblGeneration.TabIndex = 3;
-            this._lblGeneration.Text = "Cell generation: 0";
-            this._lblGeneration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // _btnRandomize
             // 
@@ -134,8 +123,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this._pictureBoxGame.Location = new System.Drawing.Point(225, 12);
+            this._pictureBoxGame.MaximumSize = new System.Drawing.Size(550, 550);
+            this._pictureBoxGame.MinimumSize = new System.Drawing.Size(550, 550);
             this._pictureBoxGame.Name = "_pictureBoxGame";
             this._pictureBoxGame.Size = new System.Drawing.Size(550, 550);
+            this._pictureBoxGame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this._pictureBoxGame.TabIndex = 2;
             this._pictureBoxGame.TabStop = false;
             this._pictureBoxGame.Click += new System.EventHandler(this.PictureBoxGameClick);
@@ -148,6 +140,7 @@
             this.ClientSize = new System.Drawing.Size(787, 574);
             this.Controls.Add(this._pictureBoxGame);
             this.Controls.Add(this._panelMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(809, 630);
             this.MinimumSize = new System.Drawing.Size(809, 630);
@@ -166,7 +159,6 @@
 
         private System.Windows.Forms.Panel _panelMenu;
         private System.Windows.Forms.Label _lblHeader;
-        private System.Windows.Forms.Label _lblGeneration;
         private System.Windows.Forms.Button _btnRandomize;
         private System.Windows.Forms.Button _btnStartGame;
         private System.Windows.Forms.Button _btnClear;
