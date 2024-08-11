@@ -44,9 +44,9 @@ namespace Conways.GameOfLife.Game
         private void PictureBoxPaint(object sender, PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
-            e.Graphics.Clear(Color.White);
+            e.Graphics.Clear(_pictureBoxGridColor.BackColor);
             Pen penBlack = new Pen(Color.Black);
-            SolidBrush brushBlack = new SolidBrush(Color.Black);
+            SolidBrush brushBlack = new SolidBrush(_pictureBoxCellColor.BackColor);
 
             for (int i = 0; i < _gridSize + 1; i++)
             {
@@ -125,6 +125,34 @@ namespace Conways.GameOfLife.Game
         {
             int[] nums = { 1, 2, 3, 4, 5 };
             _gameTimer.Interval = nums[nums.Length - _trackbarSpeed.Value] * 500;
+        }
+
+        private void SetGridColor(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            colorDialog.AllowFullOpen = true;
+            colorDialog.FullOpen = true;
+            colorDialog.AnyColor = true;
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                _pictureBoxGridColor.BackColor = colorDialog.Color;
+                _pictureBoxGridColor.Invalidate();
+                _pictureBoxGame.Invalidate();
+            }
+        }
+
+        private void SetCellColor(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            colorDialog.AllowFullOpen = true;
+            colorDialog.FullOpen = true;
+            colorDialog.AnyColor = true;
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                _pictureBoxCellColor.BackColor = colorDialog.Color;
+                _pictureBoxCellColor.Invalidate();
+                _pictureBoxGame.Invalidate();
+            }
         }
 
         private void GameTimerTick(object sender, EventArgs e)
