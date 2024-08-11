@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             this._panelMenu = new System.Windows.Forms.Panel();
             this._lblHeader = new System.Windows.Forms.Label();
             this._btnRandomize = new System.Windows.Forms.Button();
@@ -196,6 +197,7 @@
             this.Controls.Add(this._pictureBoxGame);
             this.Controls.Add(this._panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(809, 630);
             this.MinimumSize = new System.Drawing.Size(809, 630);
