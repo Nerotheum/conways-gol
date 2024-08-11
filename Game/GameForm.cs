@@ -124,7 +124,7 @@ namespace Conways.GameOfLife.Game
         private void TrackbarSpeedScroll(object sender, EventArgs e)
         {
             int[] nums = { 1, 2, 3, 4, 5 };
-            _gameTimer.Interval = nums[nums.Length - _trackbarSpeed.Value] * 1000;
+            _gameTimer.Interval = nums[nums.Length - _trackbarSpeed.Value] * 500;
         }
 
         private void GameTimerTick(object sender, EventArgs e)

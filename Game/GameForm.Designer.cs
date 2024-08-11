@@ -67,7 +67,7 @@
             // _btnRandomize
             // 
             this._btnRandomize.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._btnRandomize.Location = new System.Drawing.Point(3, 165);
+            this._btnRandomize.Location = new System.Drawing.Point(3, 121);
             this._btnRandomize.Name = "_btnRandomize";
             this._btnRandomize.Size = new System.Drawing.Size(201, 60);
             this._btnRandomize.TabIndex = 6;
@@ -78,7 +78,7 @@
             // _btnStartGame
             // 
             this._btnStartGame.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._btnStartGame.Location = new System.Drawing.Point(3, 237);
+            this._btnStartGame.Location = new System.Drawing.Point(3, 193);
             this._btnStartGame.Name = "_btnStartGame";
             this._btnStartGame.Size = new System.Drawing.Size(201, 60);
             this._btnStartGame.TabIndex = 1;
@@ -89,7 +89,7 @@
             // _btnClear
             // 
             this._btnClear.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._btnClear.Location = new System.Drawing.Point(3, 310);
+            this._btnClear.Location = new System.Drawing.Point(3, 266);
             this._btnClear.Name = "_btnClear";
             this._btnClear.Size = new System.Drawing.Size(201, 60);
             this._btnClear.TabIndex = 5;
@@ -99,7 +99,7 @@
             // 
             // _lblSpeed
             // 
-            this._lblSpeed.Location = new System.Drawing.Point(7, 395);
+            this._lblSpeed.Location = new System.Drawing.Point(7, 351);
             this._lblSpeed.Name = "_lblSpeed";
             this._lblSpeed.Size = new System.Drawing.Size(193, 23);
             this._lblSpeed.TabIndex = 4;
@@ -108,7 +108,7 @@
             // 
             // _trackbarSpeed
             // 
-            this._trackbarSpeed.Location = new System.Drawing.Point(3, 437);
+            this._trackbarSpeed.Location = new System.Drawing.Point(3, 393);
             this._trackbarSpeed.Maximum = 5;
             this._trackbarSpeed.Minimum = 1;
             this._trackbarSpeed.Name = "_trackbarSpeed";
