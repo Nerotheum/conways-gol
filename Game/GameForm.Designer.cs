@@ -84,7 +84,7 @@
             this._btnRandomize.TabIndex = 6;
             this._btnRandomize.Text = "Randomize";
             this._btnRandomize.UseVisualStyleBackColor = true;
-            this._btnRandomize.Click += new System.EventHandler(this.BtnRandomizeClick);
+            this._btnRandomize.Click += new System.EventHandler(this.Randomize);
             // 
             // _btnStartGame
             // 
@@ -95,7 +95,7 @@
             this._btnStartGame.TabIndex = 1;
             this._btnStartGame.Text = "Start";
             this._btnStartGame.UseVisualStyleBackColor = true;
-            this._btnStartGame.Click += new System.EventHandler(this.BtnStartClick);
+            this._btnStartGame.Click += new System.EventHandler(this.Start);
             // 
             // _btnClear
             // 
@@ -106,7 +106,7 @@
             this._btnClear.TabIndex = 5;
             this._btnClear.Text = "Clear";
             this._btnClear.UseVisualStyleBackColor = true;
-            this._btnClear.Click += new System.EventHandler(this.BtnClearClick);
+            this._btnClear.Click += new System.EventHandler(this.Clear);
             // 
             // _lblSpeed
             // 
@@ -186,8 +186,8 @@
             this._pictureBoxGame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this._pictureBoxGame.TabIndex = 2;
             this._pictureBoxGame.TabStop = false;
-            this._pictureBoxGame.Click += new System.EventHandler(this.PictureBoxGameClick);
-            this._pictureBoxGame.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxPaint);
+            this._pictureBoxGame.Click += new System.EventHandler(this.ToggleCellStatus);
+            this._pictureBoxGame.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawGrid);
             // 
             // GameForm
             // 

@@ -41,7 +41,7 @@ namespace Conways.GameOfLife.Game
             }
         }
 
-        private void PictureBoxPaint(object sender, PaintEventArgs e)
+        private void DrawGrid(object sender, PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
             e.Graphics.Clear(_pictureBoxGridColor.BackColor);
@@ -70,7 +70,7 @@ namespace Conways.GameOfLife.Game
             }
         }
 
-        private void PictureBoxGameClick(object sender, EventArgs e)
+        private void ToggleCellStatus(object sender, EventArgs e)
         {
             MouseEventArgs mouseEventArgs = (MouseEventArgs)e;
             Point clickCoordinates = mouseEventArgs.Location;
@@ -85,12 +85,12 @@ namespace Conways.GameOfLife.Game
             _pictureBoxGame.Invalidate();
         }
 
-        private void BtnRandomizeClick(object sender, EventArgs e)
+        private void Randomize(object sender, EventArgs e)
         {
             ResetGrid(generateRandomCells: true);
         }
 
-        private void BtnStartClick(object sender, EventArgs e)
+        private void Start(object sender, EventArgs e)
         {
             _gameRunning = !_gameRunning;
             if (_gameRunning)
@@ -100,7 +100,7 @@ namespace Conways.GameOfLife.Game
             _btnStartGame.Text = _gameRunning ? "Stop" : "Start";
         }
 
-        private void BtnClearClick(object sender, EventArgs e)
+        private void Clear(object sender, EventArgs e)
         {
             ResetGrid(generateRandomCells: false);
         }
